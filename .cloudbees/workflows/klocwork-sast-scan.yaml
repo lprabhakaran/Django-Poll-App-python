@@ -13,15 +13,15 @@ permissions:
 jobs:
   klocwork-scan:
     steps:
-      - name: Check out Java source code
+      - name: Check out python source code
         uses: cloudbees-io/checkout@v1
-      - name: Klocwork SAST scan on Java code
+      - name: Klocwork SAST scan on python code
         uses: cloudbees-io/perforce-klocwork-sast-plugin-private@v1
         with:
           url: ${{ vars.KLOCWORK_URL }}
           token: ${{ secrets.KLOCWORK_APP_TOKEN }}
           username: ${{ vars.KLOCWORK_USERNAME }}
-          projectName: my-java-project
-          buildTool: maven
+          projectName: my-python-project
+          buildTool: python
           buildDirectory: /
           ref: main
